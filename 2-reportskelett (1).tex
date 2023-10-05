@@ -1,0 +1,96 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[swedish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+% Ändra INTE nästa rad (säger var texten ska typsättas)
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+% Ändra INTE nästa rad (som lägger till radnummer till vänster)
+\usepackage[left]{lineno}
+
+
+% Ändra INTE raderna nedan
+% Koden är från https://tex.stackexchange.com/questions/43648/
+% Den fixar radnumrering av text i närvaro av matematikomgivningar
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+
+% Ändra INTE nästa rad (gör så radnummer skrivs med fet stil)
+\renewcommand\linenumberfont{\normalfont\bfseries\small}
+
+\title{Rapportskelett - Byt ut denna titel}
+%
+\author{Hela ditt fullständiga namn\thanks{email:
+        \texttt{xxxxxx-X@student.ltu.se}}\\  
+        ~ \\
+        Luleå tekniska universitet \\ 
+        971 87 Luleå, Sverige}
+%          
+\date{\today}
+
+\begin{document}
+
+\linenumbers % ger radnumrering
+
+\maketitle
+
+\begin{abstract}
+  Här skriver du en kort sammanfattning av rapporten som innehåller
+  det viktigaste. 
+\end{abstract}
+
+\section{Introduktion}
+\label{sec:introduktion}
+
+Här skriver du om helheten, bakgrund, betydelse, ja, en introduktion. 
+
+Sen lägger du till delavsnitt nedan för uppgifter som behandlas.
+
+\section{En (del-) uppgift och dess lösning}
+\label{sec:uppg1}
+
+Beskriv uppgiften och var noga med att få med alla förutsättningar.
+Kom ihåg att numrera ekvationer som refereras till i löptexten.
+
+\section{Nästa (del-) uppgift}
+\label{sec:uppg2}
+
+\section{Och ännu nästa (del-) uppgift...}
+\label{sec:uppgN}
+
+\section{Diskussion [och slutsatser]}
+\label{sec:disk}
+
+Sammanfatta vad som avhandlats i rapporten, vad du kommit fram till,
+och sätt det i sitt sammanhang. 
+%
+\begin{thebibliography}{99}
+%
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+%
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+%
+\end{thebibliography}
+%
+\end{document}
